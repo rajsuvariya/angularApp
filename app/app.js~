@@ -1,0 +1,173 @@
+var app = angular.module('rcapp',['ui.router']);
+
+app.config(['$stateProvider','$urlRouterProvider',
+	function ($stateProvider,$urlRouterProvider) {
+		
+		$urlRouterProvider.otherwise('/home');
+		$stateProvider
+			.state('home', {
+				url: "/home",
+				templateUrl: "home.html",
+			//	controller:'homeclr'
+				//security :false
+			}).state('login', {
+				url: "/login",
+				templateUrl: "Login.html",
+			//	controller:'searchclr'
+				//security :false
+			}).state('search', {
+				url: "/search",
+				templateUrl: "search.html",
+			//	controller:'searchclr'
+				//security :false
+			}).state('profile', {
+				url: "/profile",
+				templateUrl: "profile.html",
+			//	controller:'profileclr'
+				//security :true
+			}).state('other', {
+				url: "/other",
+				templateUrl: "other.html",
+			//	controller:'otherclr'
+				//security :true
+			}).state('requestbook', {
+				url: "/requestbook",
+				templateUrl: "requestbook.html",
+			//	controller:'requestclr'
+				//security :true
+			}).state('otherprofile', {
+				url: "/otherprofile",
+				templateUrl: "otherprofile.html",
+			//	controller:'homeclr'
+				//security :true
+			}).state('bookdetails', {
+				url: "/bookDetails",
+				templateUrl: "bookDetails.html"
+			})
+		}
+]);
+
+
+app.controller('homeclr', function($scope,$state,$http){
+
+	$scope.search = function(){
+			$state.go('search');
+	};
+$scope.login = function(){
+			$state.go('login');
+	};
+	$scope.profile = function(){
+			$state.go('profile');
+	};
+});
+
+
+app.controller('loginclr', function($scope,$state,$http){
+
+	$scope.search = function(){
+	};
+
+	$scope.profile = function(){
+			$state.go('profile');
+	};
+});
+
+app.controller('indexclr', function($scope,$state,$http){
+
+	$scope.login = function(){
+			$state.go('login');
+	};
+
+	$scope.profile = function(){
+			$state.go('profile');
+	};
+});
+
+
+app.controller('profileclr',function($scope,$state,$http){
+	
+	$scope.search = function(){
+		$state.go('search');
+	};
+	$scope.profile = function(){
+		$state.go('other');
+	};
+	$scope.requestbook = function(){
+		$state.go('requestbook');
+	};
+	$scope.logout = function(){
+        $state.go('home');
+		
+	};
+	$scope.other = function(){
+		$state.go('other');
+	};
+});
+
+
+
+app.controller('searchclr', function($scope,$state,$http){
+	$scope.search = function(){
+		$state.go('search');
+	};
+	$scope.profileback = function(){
+		$state.go('profile');
+	};
+    $scope.bookdetails = function(){
+		$state.go('bookdetails');
+	};
+
+
+
+	$scope.book = function(index){
+//	
+
+	};
+	
+	$scope.request = function(index){	
+		$state.go("requestbook");			
+	}
+	
+	$scope.moredetails = function(){
+		
+	};
+
+	$scope.homeback = function(){
+		$state.go('home');
+	};
+});
+
+app.controller('otherclr', function($scope,$state,$http){
+	
+	$scope.otherprofile = function(){
+		$state.go('otherprofile');
+	};
+	$scope.search = function(){
+		$state.go('otherprofile');
+	};
+});
+
+app.controller('bookDetailsclr',function($location, $scope,$state,$http, Service){
+
+	$scope.homeback = function(){
+		$state.go('search');
+	};
+});
+
+
+app.controller('otherprofileclr', function($scope,$state,$http){
+
+	$scope.back = function(){
+		$state.go('profile');
+	};
+});
+
+app.controller('requestbookclr', function($scope,$state,$http){
+	$scope.requestbook = function(){
+	    $state.go('profile');
+    };
+    
+	$scope.cancell = function(){
+		$state.go('profile');
+	};
+})

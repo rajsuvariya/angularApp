@@ -1,0 +1,41 @@
+<body>
+  <div class="section no-pad-bot" id="index-banner" ng-controller="bookDetailsclr">
+    <div class="container">
+      
+      <div class="row center">
+        <div class="row center">
+            <h1>{{book.volumeInfo.title}}</h1>
+            <p> <b>Description</b> <br/> {{book.volumeInfo.description}}</p>
+        </div>
+        <br>
+         <div class="row left">
+           <img src="{{book.volumeInfo.imageLinks.thumbnail}}" alt="image" height="220px" width="160px">
+       </div>
+       
+        <div class="row right" >
+            <p><b> Publisher </b></p>
+            <p>{{book.volumeInfo.publisher}}</p>
+            <br>
+            <p><b> ISBN </b></p>
+            <p>{{book.volumeInfo.industryIdentifiers[0].identifier}}</p> 
+       </div>
+        <div class="row">
+            <p><b> Authors </b></p>
+            <p ng-repeat="person in book.volumeInfo.authors">{{person}}</p>
+        </div>
+        
+
+        <table class="striped bordered centered">
+        <thead class="light-blue lighten-1">
+            <tr><th>Accession Number</th><th>Issue Status</th></tr>
+        </thead>
+        <tbody>
+              <tr ng-repeat="book in myResult">
+                <td>{{book.accessionNumber}}</td>
+                <td></td>
+              </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>

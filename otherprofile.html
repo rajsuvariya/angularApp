@@ -1,0 +1,57 @@
+<body>
+<div class="section no-pad-bot" id="index-banner" ng-controller="otherprofileclr">
+    <div class="container center">
+        <div class="row right">
+        <!--<ul id="nav-mobile"  class="right hide-on-med-and-down">
+     
+            <a class='dropdown-button btn light-blue lighten-1 hide-on-med-and-down' data-activates='dropdown1'><b>More</b></a>
+
+           
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a ng-click="">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">three</a></li>
+            </ul>
+      </ul>-->
+                  <a ng-click="logout()" id="3-button" class="btn-large waves-effect waves-light light-blue lighten-1"><strong>LogOut</strong></a>
+      </div>
+      <br><br>
+      <br><br>
+      <nav>
+        <div class="nav-wrapper">
+        <form>
+            <div class="input-field white black-text">
+            <input id="search" type="search" ng-model="searchProfileID" required>
+            <label for="search"><i class="material-icons blue-text lighten-1">search</i></label>
+            <i class="material-icons blue-text lighten-1">close</i>
+            </div>
+        </form>
+        </div>
+        
+      </nav>
+      <br>
+      <a ng-click="search()" id="search-button" class="btn-large waves-effect waves-light light-blue lighten-1"><strong>Search</strong></a>
+      <br><br><br>
+      <table class="striped bordered centered">
+        <thead class="light-blue lighten-1">
+            <tr><td>ISBN</td><td>Accession Number</td><td>UniqueID</td><td>DoI</td><td>DoExR</td><td>DoR</td></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat = "book in booklist" >
+              <td> {{book.ISBN}} </td>
+              <td> {{book.accessionNumber}} </td>
+              <td> {{book.UniqueId}} </td>
+              <td> {{book.DoI}} </td>
+              <td> {{book.DoExR}} </td>
+              <td> {{book.DoR}} </td>
+            </tr>
+        </tbody>
+      </table>
+
+</div>
+</div>
+      <br><br><br>
+<br>
+
+</body>

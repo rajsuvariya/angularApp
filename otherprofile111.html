@@ -1,0 +1,28 @@
+<body>
+<div ng-controller="otherprofileclr">
+	<center><h1>Other Student's Profile</h1></center>
+
+	<table border="1">
+		<tr><td>User Name:</td><td>Parag Chauhan</td></tr>
+		<tr><td>ID:</td><td>{{otheruserid}}</td></tr>
+	</table>
+	
+	<h2>Issued Book History</h2>
+	
+	<table border="1">
+		<tr><td>ISBN</td><td>Accession Number</td><td>UniqueID</td><td>DoI</td><td>DoExR</td><td>DoR</td></tr>
+			<tr ng-repeat = "book1 in booklist | filter: otheruserid " >
+				<td> {{book1.ISBN}} </td>
+				<td> {{book1.accessionNumber}} </td>
+				<td> {{book1.UniqueId}} </td>
+				<td> {{book1.DoI}} </td>
+				<td> {{book1.DoExR}} </td>
+				<td> {{book1.DoR}} </td>
+			</tr>
+		
+			
+	</table>
+
+		<center><button type="button" class="btn btn-primary" ng-click="back()">Back</button></center>
+</div>
+</body>

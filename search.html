@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<body>
+  <div class="section no-pad-bot" id="index-banner" ng-controller="searchclr">
+    <div class="container">
+
+ 
+     
+       
+       
+      <br/>
+      <table class="striped bordered centered">
+        <thead class="light-blue lighten-1">
+            <tr><th>Book Title</th><th>Author</th><th>Publisher</th><th>More Details</th>></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="books in ourResult">
+              <td>{{books.volumeInfo.title}}</td>
+              <td><span ng-repeat="author in books.volumeInfo.authors">{{author}}, </span></td>
+              <td>{{books.volumeInfo.publisher}}</td>
+              <td><button ng-click="book($index)">More Details</button></td>
+            </tr>
+        </tbody>
+      </table>
+      <br/>
+      <br/>
+      <h6><center><b>Can't Find the book you were looking for? Were you looking for these?</b></center></h6>
+      <br/>
+      <table class="striped bordered centered">
+        <thead class="light-blue lighten-1">
+            <tr><th>Book Title</th><th>Author</th><th>Publisher</th><th>More Details</th><th>Request Book</th>></tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="books in requestBooks">
+              <td>{{books.volumeInfo.title}}</td>
+              <td><span ng-repeat="author in books.volumeInfo.authors">{{author}}, </span></td>
+              <td>{{books.volumeInfo.publisher}}</td>
+              <td><button ng-click="bookMore($index)">More Details</button></td>
+              <td><button ng-click="request($index)">Request Book</button></td>
+            </tr>
+        </tbody>
+      </table>
+      
+      
+    </div>
+  </div>
+
+<br><br>
+
+ 
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
